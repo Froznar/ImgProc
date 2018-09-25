@@ -4,7 +4,7 @@ import math
 from matplotlib import pyplot as plt
 
 
-im = Image.open('Flower.jpg').convert('L', (0.2989, 0.5870, 0.1140, 0)) # To grayscale.
+im = Image.open('payaso.jpg').convert('L', (0.2989, 0.5870, 0.1140, 0)) # To grayscale.
 pix = im.load()
 x_size = im.size[0]  
 y_size = im.size[1]  
@@ -57,8 +57,9 @@ def applyFilter(name, size):
                 suma = 0
                 startx=i-marco
                 starty=j-marco
-                suma = (-1*pix[startx,starty]) + (-1*pix[startx+1,starty]) + (pix[startx,starty+1]) + (pix[startx+1,starty+1])
-                pix[i,j] = suma
+                gx = (-1*pix[startx,starty]) + (pix[startx+1,starty+1])
+                gy = (pix[startx+1,starty+1]) + (-1*pix[startx+2,starty])
+                pix[i,j] = (int)(math.sqrt((gx*gx)+(gy*gy)))
         im.save('RobertFilter.jpg')  # Save
 
     if name == "sobel" and size == 3:
@@ -70,7 +71,7 @@ def applyFilter(name, size):
                 starty=j-marco
                 gx = (pix[startx,starty]) + (-1*pix[startx+2,starty]) + (2*pix[startx,starty+1]) + (-2*pix[startx+2,starty+1]) + (pix[startx,starty+2]) + (-1*pix[startx+2,starty+2])
                 gy = (pix[startx,starty]) + (2*pix[startx+1,starty]) + (pix[startx+2,starty]) + (-1*pix[startx,starty+2]) + (-2*pix[startx+1,starty+2]) + (-1*pix[startx+2,starty+2])
-                pix[i,j] = gx + gy#(math.sqrt((gx*gx)+(gy*gy)))
+                pix[i,j] = (int)(math.sqrt((gx*gx)+(gy*gy)))
         im.save('SobelFilter.jpg')  # Save
 
     if name == "laplace" and size == 3:
@@ -142,7 +143,7 @@ def main():
     #FILTROS
 
 
-    applyFilter("sobel",3)
+    applyFilter("robert",3)
 
 if __name__ == '__main__':
     main()
