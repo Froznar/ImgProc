@@ -7,7 +7,7 @@ from matplotlib import pyplot as plt
 im = Image.open('payaso.jpg').convert('L', (0.2989, 0.5870, 0.1140, 0)) # To grayscale.
 pix = im.load()
 x_size = im.size[0]  
-y_size = im.size[1]  
+y_size = im.size[1]
 
 def most_common(lst):
     return max(set(lst), key=lst.count)
@@ -125,7 +125,7 @@ def main():
 
 
     #Logarithm
-    #C = 20 #a valores más altos mas claro
+    #C = 20 #a valores mas altos mas claro
     #exp = 2
     #for i in range (0,x_size):
     #    for j in range (0,y_size):
@@ -134,7 +134,7 @@ def main():
 
     #Power
     #C = 0.2 
-    #exp = 1.5 #a valores más altos mas claro
+    #exp = 1.5 #a valores mas altos mas claro
     #for i in range (0,x_size):
     #    for j in range (0,y_size):
     #        pix[i,j] = math.ceil(C * pow(pix[i,j],exp))
