@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>2fdf0c67-fe5e-4d83-87e5-c7456ef4b15c</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>ImgProc.py</StartupFile>
+    <StartupFile>fourier.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,6 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="fourier.py" />
     <Compile Include="ImgProc.py" />
   </ItemGroup>
   <ItemGroup>
